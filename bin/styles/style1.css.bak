@@ -21,6 +21,9 @@ body{
 	background-attachment: fixed;
 	background-size: 100% 100%;
 }
+.weather{
+	font-size: 1.5vw;
+}
 .content{
 	display: flex;
 	flex-direction: row;
@@ -29,6 +32,8 @@ body{
 	margin-bottom: 3%;
 }
 .footer{
+	display: flex;
+	flex-direction: row;
 	background-color: rgba(100%, 100%, 100%, .7);
 	border: 2px #878787 solid;
 	border-radius: 10px;

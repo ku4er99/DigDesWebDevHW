@@ -6,6 +6,7 @@
 		<base href="bin/">
 		<link rel="stylesheet" type="text/css" href="styles/style1.css"/> 
 		<link rel="stylesheet" type="text/css" href="styles/form.css"/> 
+		<script src="scripts/weather.js"></script>
 	</head>
 	<body>
 		<div class="baikalsite">
@@ -21,7 +22,7 @@
 			</div>
 			<div class="content">
 				<div class="column"><h2 style="font-size:2vw;">Интересные факты:</h2>
-					<div style="font-align: left">
+					<div style="text-align: left;">
 						<ol>
 							<li style="font-size:1vw; margin-bottom: 1%;">Байкал является самым глубоким озером на нашей планете. Глубина его составляет 1642 м</li>
 							<li style="font-size:1vw; margin-bottom: 1%;">Байкал содержит 19% всех запасов пресной воды на планете. В нем 23 615,39 км³ воды. Если взять всю эту воду и тупо поделить на всех граждан России, то каждому достанется примерно по 2700 железнодорожных цистерны с водой. </li>
@@ -41,6 +42,13 @@
 					<br>
 					<img src="images/baikal3.jpg" alt="Baikal3" vspace="100px" style="border: 2px #878787 solid; border-radius: 10px; width: 100%; max-width: 400px; height: auto;">
 				</div>
+			</div>
+			<h2 style="font-size:2vw;">Погода на Байкале (г. Байкальск) онлайн:</h2>
+			<div class="content">
+				<div class="weather"></div>
+			</div>
+			<div class="content">
+				<button id="refr">Обновить</button>
 			</div>
 			<h2 style="font-size:2vw;">Полезные ссылки:</h2>
 			<div class="content">
