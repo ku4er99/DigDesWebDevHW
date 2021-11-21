@@ -63,26 +63,7 @@
 			</div>
 			<div class="content">
 				<div class="column">
-					<form class="decor" method="post" action="http://localhost/surveyform">
-						<div class="form-left-decoration"></div>
-							<div class="form-right-decoration"></div>
-							<div class="circle"></div>
-							<div class="form-inner">
-							<h3>Опрос</h3>
-							<input type="text" placeholder="ФИО или Nickname" name="fioornickname">
-							<input type="email" placeholder="Email" name="email">
-							<p><select size="3" multiple name="question[]">
-								<option disabled>Бывали ли вы на Байкале?</option>
-								<option selected value="Да, бываю часто">Да, бываю часто</option>
-								<option value="Да, бываю редко">Да, бываю редко</option>
-								<option value="Когда-то бывал">Когда-то бывал</option>
-								<option value="Нет, но очень хочу побывать">Нет, но очень хочу побывать</option>
-								<option value="Нет и не собираюсь">Нет и не собираюсь</option>
-						   </select></p>
-							<textarea placeholder="Комментарий (по желанию)..." rows="3" name="comment"></textarea>
-							<input type="submit" value="Отправить">
-						</div>
-					</form>
+					<div id="root"></div>
 				</div>
 			</div>
 			<div class="footer">
@@ -121,5 +102,70 @@
 			</div>
 		</div>
 		<script src="scripts/weather.js"></script>
+		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>		 
+		<script type="text/babel">
+			class ControlledFormComponent extends React.Component { 
+				constructor(props){
+					super(props);
+					
+					this.state = { 
+						name: '', 
+						email: '',
+						question: {},
+						comment: ''
+					};
+					
+					this.handleChange = this.handleChange.bind(this);
+					this.handleSubmit = this.handleSubmit.bind(this);
+				}
+
+				handleSubmit(event){
+					alert('Вы ввели: \n Ваше имя или логин: ' + this.state.name 
+					+ '\n Ваш Email: ' + this.state.email 
+					+ '\n Ваш ответ: '+ this.state.question 
+					+ '\n Ваш комментарий: ' + this.state.comment);
+					event.preventDefault();
+				}
+
+				handleChange(event){
+					console.log(event.target.value);
+					/* Новое значение из event.target.value записываем в this.state.value и вызываем render */
+					this.setState({ [event.target.name]: event.target.value })
+				}
+
+			render() {  
+				return (  
+				<div>
+					<form class="decor" onSubmit={this.handleSubmit} value>
+						<div class="form-left-decoration"></div>
+							<div class="form-right-decoration"></div>
+							<div class="circle"></div>
+							<div class="form-inner">
+							<h3>Опрос</h3>
+							<input type="text" placeholder="ФИО или Nickname" name="name" onChange={this.handleChange} />
+							<input type="email" placeholder="Email" name="email" onChange={this.handleChange} />
+							<p><select size="6" name="question" onChange={this.handleChange}>
+								<option disabled>Бывали ли вы на Байкале?</option>
+								<option value="Да, бываю часто">Да, бываю часто</option>
+								<option value="Да, бываю редко">Да, бываю редко</option>
+								<option value="Когда-то бывал">Когда-то бывал</option>
+								<option value="Нет, но очень хочу побывать">Нет, но очень хочу побывать</option>
+								<option value="Нет и не собираюсь">Нет и не собираюсь</option>
+						   </select></p>
+							<textarea placeholder="Комментарий (по желанию)..." rows="3" name="comment" onChange={this.handleChange} ></textarea>
+							<input type="submit" value="Отправить" />
+						</div>
+					</form>  
+				</div>  
+				);  
+			} 
+		}
+
+		ReactDOM.render(<ControlledFormComponent />, document.getElementById("root"));
+		</script>
 	</body>
 </html>
+
+		

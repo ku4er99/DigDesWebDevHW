@@ -54,12 +54,27 @@
    background: white;
 }
 .form-inner {
-   padding: 50px;
+   padding-left: 10%;
+   padding-right: 15%;
+   padding-top: 5%;
+   padding-bottom: 5%;
 }
-.form-inner input, .form-inner textarea, .form-inner select, .form-inner label {
+.form-inner input, .form-inner textarea{
    display: block;
    width: 100%;
    padding: 0 20px;
+   margin-bottom: 10px;
+   background: #E9EFF6;
+   line-height: 40px;
+   border-width: 0;
+   border-radius: 20px;
+   font-family: 'Roboto', sans-serif;
+}
+.form-inner select, .form-inner label{
+   display: block;
+   width: 100%;
+   padding: 0 20px;
+   padding-right: 315px;
    margin-bottom: 10px;
    background: #E9EFF6;
    line-height: 40px;
@@ -73,6 +88,7 @@
    border-bottom: 4px solid rgba(39%, 58%, 93%, .7);
    color: white;
    font-size: 14px;
+   margin-left: 5%;
 }
 .form-inner textarea {
    resize: none;
